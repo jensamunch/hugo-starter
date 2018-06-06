@@ -1,0 +1,12 @@
+baseURL = "https://something"
+googleAnalytics = "UA-xxxxx-7"
+
+[params]
+brand = "brand"
+navOne = "One"
+navTwo = "Two"
+navThree = "Three"
+navButton = "Button"
+copyright = "Copyright"
+terms = "Terms & Conditions"
+policy = "Privacy Policy"

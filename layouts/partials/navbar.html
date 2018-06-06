@@ -1,0 +1,28 @@
+<nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="{{ .Site.LanguagePrefix }}/">
+      <div>{{ .Site.Params.brand }}</div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+    <div class="collapse navbar-collapse " id="navbarCollapse">
+      <ul class="navbar-nav ml-auto p-2">
+        <li class="nav-item">
+          <a class="nav-link pace-link {{ if eq .Section " why-pace " }}active{{ end }}" href="{{ .Site.LanguagePrefix }}/why-pace/">{{ .Site.Params.navOne }}</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link pace-link {{ if or (eq .Section " blog ") (eq .Kind "taxonomy ") }}active{{ end }}" href="{{ .Site.LanguagePrefix }}/blog/">{{ .Site.Params.navTwo }}</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link pace-link" target="_blank" href="https://app.paceup.com">
+           {{ .Site.Params.navThree }}
+         </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>

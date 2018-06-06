@@ -1,0 +1,20 @@
+<section class="my-5 py-5">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg">
+        <h1 class="">
+            {{ .Params.heroTitle }}
+         </h1>
+        <p class="lead">
+          {{ .Params.heroSub }}
+        </p>
+      </div>
+
+      <div class="col-lg">
+        <a class="btn btn-primary btn-lg my-2" href="{{ .Site.LanguagePrefix }}/get-in-touch/" role="button">{{ .Site.Params.navButton }}</a>
+      </div>
+
+    </div>
+  </div>
+</section>

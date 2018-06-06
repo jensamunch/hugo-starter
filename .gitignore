@@ -1,0 +1,17 @@
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
+.DS_Store
+
+# NPM packages folder and output folder
+node_modules/
+resources/
+public/

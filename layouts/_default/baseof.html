@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+  {{ partial "head.html" . }}
+  <link href="/css/style.min.css" rel="stylesheet">
+</head>
+	<body>
+		{{ partial "navbar.html" . }}
+		{{block "main" .}}{{end}}
+		{{ partial "footer.html" . }}
+    <script src="/js/bundle.js"></script>
+    {{ template "_internal/google_analytics_async.html" . }}
+	</body>
+</html>
