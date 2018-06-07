@@ -4,7 +4,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var cleancss = require('gulp-clean-css');
-
+var babel = require('gulp-babel');
 
 var paths = {
   styles: {
@@ -35,11 +35,19 @@ function styles() {
     .pipe(gulp.dest(paths.styles.dest));
 }
 
+gulp.task('default', () =>
+    gulp.src('src/app.js')
+        .pipe(babel({
+            presets: ['env']
+        }))
+        .pipe(gulp.dest('dist'))
+);
+
 function scripts() {
-  return gulp.src(paths.scripts.src, { sourcemaps: true })
-    .pipe(uglify())
-    .pipe(concat('main.min.js'))
-    .pipe(gulp.dest(paths.scripts.dest));
+  return gulp.src(['node_modules/jquery/dist/jquery.slim.min.js','node_modules/popper.js/dist/umd/popper.min.js','node_modules/bootstrap/dist/js/bootstrap.min.js', "src/scripts/aos.min.js", "src/scripts/app.js"])
+  .pipe(concat('main.min.js'))
+  .pipe(uglify())
+  .pipe(gulp.dest('static/scripts/'));
 }
 
 function watch() {

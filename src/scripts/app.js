@@ -1,6 +1,8 @@
 $(document).ready(function() {
   var url = window.location.href;
 
+
+
   if ((url.includes("/blog/")) || (url.includes("/tags/"))) {
     console.log("BLOG");
     var bricklayer = new Bricklayer(document.querySelector('.bricklayer'))
