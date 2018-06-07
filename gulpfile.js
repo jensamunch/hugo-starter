@@ -1,54 +1,70 @@
-var gulp = require("gulp");
-var sass = require("gulp-sass");
-var sourcemaps = require("gulp-sourcemaps");
-var autoprefixer = require("gulp-autoprefixer");
-var cleanCSS = require("gulp-clean-css");
-var rename = require("gulp-rename");
+var gulp = require('gulp');
+var sass = require('gulp-sass');
 var concat = require('gulp-concat');
-var cleanCSS = require('gulp-clean-css');
+var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
+var cleancss = require('gulp-clean-css');
 
-gulp.task('concat-js', function() {
-  return gulp.src(['node_modules/jquery/dist/jquery.slim.min.js','node_modules/popper.js/dist/umd/popper.min.js','node_modules/bootstrap/dist/js/bootstrap.min.js', "source/js/aos.min.js", "source/js/app.js"])
-    .pipe(concat('bundle.js'))
-    .pipe(gulp.dest('static/js/'));
-});
 
-gulp.task("css-sourcemaps", function() {
-  gulp
-    .src("source/scss/**/*.scss")
-    .pipe(sourcemaps.init())
-    .pipe(sass().on("error", sass.logError))
-    .pipe(sourcemaps.write())
-    .pipe(
-      rename({
-        suffix: ".min"
-      })
-    )
-    .pipe(gulp.dest("static/css"));
-});
+var paths = {
+  styles: {
+    src: 'src/styles/**/*.scss',
+    dest: 'static/styles/'
+  },
+  scripts: {
+    src: 'src/scripts/**/*.js',
+    dest: 'static/scripts/'
+  }
+};
 
-gulp.task("css", function() {
-  gulp
-    .src("source/scss/**/*.scss")
-    .pipe(sass().on("error", sass.logError))
-    .pipe(
-      autoprefixer({
-        browsers: ["last 2 versions"],
-        cascade: false
-      })
-    )
-    .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(
-      rename({
-        suffix: ".min"
-      })
-    )
-    .pipe(gulp.dest("static/css"));
-});
+/* Not all tasks need to use streams, a gulpfile is just another node program
+ * and you can use all packages available on npm, but it must return either a
+ * Promise, a Stream or take a callback and call it
+ */
+/*
+ * Define our tasks using plain functions
+ */
+function styles() {
+  return gulp.src(paths.styles.src)
+    .pipe(sass())
+    .pipe(cleancss({level: {1: {specialComments: 0}}}))    // pass in options to the stream
+    .pipe(rename({
+      basename: 'main',
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest(paths.styles.dest));
+}
 
-gulp.task("watch", function() {
-  gulp.watch("source/scss/**/*.scss", ["css-sourcemaps"]);
-  gulp.watch("source/js/**/*.js", ["concat-js"]);
-});
+function scripts() {
+  return gulp.src(paths.scripts.src, { sourcemaps: true })
+    .pipe(uglify())
+    .pipe(concat('main.min.js'))
+    .pipe(gulp.dest(paths.scripts.dest));
+}
 
-gulp.task("build", ["css", "concat-js"]);
+function watch() {
+  gulp.watch(paths.scripts.src, scripts);
+  gulp.watch(paths.styles.src, styles);
+}
+
+/*
+ * You can use CommonJS `exports` module notation to declare tasks
+ */
+exports.styles = styles;
+exports.scripts = scripts;
+exports.watch = watch;
+
+/*
+ * Specify if tasks run in series or parallel using `gulp.series` and `gulp.parallel`
+ */
+var build = gulp.series(gulp.parallel(styles, scripts));
+
+/*
+ * You can still use `gulp.task` to expose tasks
+ */
+gulp.task('build', build);
+
+/*
+ * Define default task that can be called by just running `gulp` from cli
+ */
+gulp.task('default', build);
