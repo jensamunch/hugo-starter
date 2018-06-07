@@ -10,17 +10,17 @@
     "watch-html": "hugo server",
     "watch-css": "gulp watch"
   },
-  "devDependencies": {},
-  "dependencies": {
-    "aos": "^2.2.0",
-    "bootstrap": "^4.1.1",
+  "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.0.0",
-    "gulp-clean-css": "^3.9.3",
+    "gulp-clean-css": "^3.9.4",
     "gulp-concat": "^2.6.1",
     "gulp-rename": "^1.2.3",
-    "gulp-sass": "^3.2.1",
-    "gulp-sourcemaps": "^2.6.4",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.0"
+  },
+  "dependencies": {
+    "aos": "^2.3.0",
+    "bootstrap": "^4.1.1",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.3"
   }
