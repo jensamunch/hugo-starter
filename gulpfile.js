@@ -26,16 +26,16 @@ var paths = {
  * Define our tasks using plain functions
  */
 
- function stylesWatch() {
-   return gulp.src(paths.styles.src)
-     .pipe(sourcemaps.init())
-     .pipe(sass().on('error', sass.logError))
-     .pipe(sourcemaps.write())
-     .pipe(rename({
-      basename: 'main',
-      suffix: '.min'
-     }))
-     .pipe(gulp.dest(paths.styles.dest));
+function stylesWatch() {
+ return gulp.src(paths.styles.src)
+   .pipe(sourcemaps.init())
+   .pipe(sass().on('error', sass.logError))
+   .pipe(sourcemaps.write())
+   .pipe(rename({
+    basename: 'main',
+    suffix: '.min'
+   }))
+   .pipe(gulp.dest(paths.styles.dest));
  }
 
 function styles() {
