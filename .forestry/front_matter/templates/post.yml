@@ -18,3 +18,5 @@ fields:
     required: true
   label: text
   name: body
+pages:
+- content/blog.md
