@@ -1,0 +1,20 @@
+---
+hide_body: false
+is_partial: false
+fields:
+- type: textarea
+  config:
+    required: true
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: most important headline
+  name: title
+- type: textarea
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
+    required: true
+  label: text
+  name: body
