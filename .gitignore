@@ -13,5 +13,4 @@
 
 # NPM packages folder and output folder
 node_modules/
-resources/
 public/
