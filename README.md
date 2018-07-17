@@ -12,3 +12,9 @@ if you're on Mac.
 
 # To build into /public
 `hugo`
+
+# Here's this repo deployed to Netlify
+(https://clever-benz-048ad9.netlify.com/)
+
+Build command: hugo
+Publish directory: public
