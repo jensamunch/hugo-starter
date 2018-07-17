@@ -1,21 +1,16 @@
+YOU NEED
+`sudo npm install -g postcss-cli`
+`sudo npm install -g autoprefixer`
 
-1. Get hugo installed - through `brew install hugo` if you're on Mac.
-2. `npm install`
+1. Get hugo installed
+`brew install hugo`
+if you're on Mac.
 
 3. To develop - Run the these in separate tabs
-    * `hugo server`
-    * `gulp watch`
+`hugo server`
 
 3. To build - from / (into /public):
-    * `gulp build && hugo`
+`hugo`
 
-
-#IMPORTANT
-
-* JS:
-    * Need to be put into /source/js
-    * .JS is watched in development
-
-* SCSS:
-    * Need to be put into /source/scss
-    * .SCSS is watched in development
+FOR THE ICONS SEE HERE
+https://ant.design/components/icon/

@@ -1,0 +1,25 @@
+// MEDIA QUERIES
+@media (max-width: 767px) {}
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+//FIND OVERFLOW HACK
+// * {
+//  border: 1px solid #f00;
+// }
+
+body {
+  padding-top: 56px;
+  word-wrap: break-word;
+
+  :focus {
+    box-shadow: none !important;
+    outline: none !important;
+  }
+}
+
+footer {
+  background-color: $gray-900;
+  color: $white;
+  padding: 20px 0px 20px;
+}

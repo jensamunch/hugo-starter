@@ -2,13 +2,32 @@
 <html lang="en">
 <head>
   {{ partial "head.html" . }}
-  <link href="/styles/main.min.css" rel="stylesheet">
+
+  <!-- SCSS PIPELINE -->
+  {{ if .Site.IsServer }}
+  {{ $cssOpts := (dict "targetPath" "styles/main.css" "enableSourceMap" true ) }}
+  {{ $styles := resources.Get "styles/main.scss" | toCSS $cssOpts }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+  {{ else }}
+  {{ $styles := resources.Get "styles/main.scss" | toCSS | postCSS | minify }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+  {{ end }}
+
 </head>
 	<body>
 		{{ partial "navbar.html" . }}
 		{{block "main" .}}{{end}}
 		{{ partial "footer.html" . }}
-    <script src="/scripts/main.min.js"></script>
+
+    <!-- JS PIPELINE -->
+    {{ $jquery := resources.Get "scripts/jquery.slim.js" }}
+    {{ $bootstrap := resources.Get "scripts/bootstrap.bundle.js" }}
+    {{ $custom := resources.Get "scripts/app.js" }}
+    {{ $scripts := slice $jquery $bootstrap  $custom | resources.Concat "main.js" | minify }}
+    <script src="{{ $scripts.RelPermalink }}"></script>
+
+    <!-- ANALYTICS -->
     {{ template "_internal/google_analytics_async.html" . }}
+
 	</body>
 </html>

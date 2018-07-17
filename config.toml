@@ -2,10 +2,9 @@ baseURL = "https://something"
 googleAnalytics = "UA-xxxxx-7"
 
 [params]
-brand = "brand"
-navOne = "One"
-navTwo = "Two"
-navThree = "Three"
+brand = "SOME BRAND"
+navOne = "How to do things"
+navTwo = "Why to do things"
 navButton = "Button"
 copyright = "Copyright"
 terms = "Terms & Conditions"

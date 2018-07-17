@@ -6,23 +6,9 @@
     "type": "git",
     "url": "https://github.com/findpace/www.paceup.com"
   },
-  "scripts": {
-    "start": "hugo server & gulp watch & open http://localhost:1313/",
-    "build": "gulp build && hugo"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "gulp": "^4.0.0",
-    "gulp-babel": "^7.0.1",
-    "gulp-clean-css": "^3.9.4",
-    "gulp-concat": "^2.6.1",
-    "gulp-rename": "^1.2.3",
-    "gulp-sass": "^4.0.1",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify": "^3.0.0"
-  },
+  "scripts": {},
+  "devDependencies": {},
   "dependencies": {
-    "aos": "^2.3.0",
     "bootstrap": "^4.1.1",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.3"
