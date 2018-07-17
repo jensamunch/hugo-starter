@@ -1,11 +1,11 @@
 # You will need
 
-###Hugo installed
+### Hugo installed
 
 `brew install hugo`
 if you're on Mac.
 
-###PostCSS global
+### PostCSS global
 
 `sudo npm install -g postcss-cli`
 `sudo npm install -g autoprefixer`
