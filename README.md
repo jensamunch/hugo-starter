@@ -1,16 +1,14 @@
-YOU NEED
-`sudo npm install -g postcss-cli`
-`sudo npm install -g autoprefixer`
-
-1. Get hugo installed
+# You will need
+*Hugo installed*
 `brew install hugo`
 if you're on Mac.
 
-3. To develop - Run the these in separate tabs
+*PostCSS global*
+`sudo npm install -g postcss-cli`
+`sudo npm install -g autoprefixer`
+
+# To develop
 `hugo server`
 
-3. To build - from / (into /public):
+# To build into /public
 `hugo`
-
-FOR THE ICONS SEE HERE
-https://ant.design/components/icon/
